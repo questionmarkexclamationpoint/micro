@@ -65,33 +65,33 @@ function preinit()
         devnull = "NUL"
     end
 
-    makeLinter("gcc", "c", "gcc", {"-fsyntax-only", "-Wall", "-Wextra", "%f"}, "%f:%l:%c:.+: %m")
-    makeLinter("g++", "c++", "g++", {"-fsyntax-only","-Wall", "-Wextra", "%f"}, "%f:%l:%c:.+: %m")
-    makeLinter("dmd", "d", "dmd", {"-color=off", "-o-", "-w", "-wi", "-c", "%f"}, "%f%(%l%):.+: %m")
-    makeLinter("ldc2", "d", "ldc2", {"--o-", "--vcolumns", "-w", "-c", "%f"}, "%f%(%l,%c%):[^:]+: %m")
-    makeLinter("gdc", "d", "gdc", {"-fsyntax-only","-Wall", "-Wextra", "%f"}, "%f:%l:%c:.+: %m")
-    makeLinter("eslint", "javascript", "eslint", {"-f","compact","%f"}, "%f: line %l, col %c, %m")
-    makeLinter("gobuild", "go", "go", {"build", "-o", devnull, "%d"}, "%f:%l:%c:? %m")
-    makeLinter("govet", "go", "go", {"vet"}, "%f:%l:%c: %m")
-    makeLinter("clippy", "rust", "cargo", {"clippy", "--message-format", "short"}, "%f:%l:%c: %m")
-    makeLinter("hlint", "haskell", "hlint", {"%f"}, "%f:%(?%l[,:]%c%)?.-: %m")
-    makeLinter("javac", "java", "javac", {"-d", "%d", "%f"}, "%f:%l: error: %m")
-    makeLinter("jshint", "javascript", "jshint", {"%f"}, "%f: line %l,.+, %m")
-    makeLinter("literate", "literate", "lit", {"-c", "%f"}, "%f:%l:%m", {}, false, true)
-    makeLinter("luacheck", "lua", "luacheck", {"--no-color", "%f"}, "%f:%l:%c: %m")
-    makeLinter("nim", "nim", "nim", {"check", "--listFullPaths", "--stdout", "--hints:off", "%f"}, "%f.%l, %c. %m")
-    makeLinter("clang", "objective-c", "xcrun", {"clang", "-fsyntax-only", "-Wall", "-Wextra", "%f"}, "%f:%l:%c:.+: %m")
-    makeLinter("pyflakes", "python", "pyflakes", {"%f"}, "%f:%l:.-:? %m")
-    makeLinter("mypy", "python", "mypy", {"%f"}, "%f:%l: %m")
-    makeLinter("pylint", "python", "pylint", {"--output-format=parseable", "--reports=no", "%f"}, "%f:%l: %m")
-    makeLinter("ruff", "python", "ruff", {"check", "--output-format=concise", "%f"}, "%f:%l:%c: %m")
-    makeLinter("flake8", "python", "flake8", {"%f"}, "%f:%l:%c: %m")
-    makeLinter("shfmt", "shell", "shfmt", {"%f"}, "%f:%l:%c: %m")
-    makeLinter("shellcheck", "shell", "shellcheck", {"-f", "gcc", "%f"}, "%f:%l:%c:.+: %m")
-    makeLinter("swiftc", "swift", "xcrun", {"swiftc", "%f"}, "%f:%l:%c:.+: %m", {"darwin"}, true)
-    makeLinter("swiftc-linux", "swift", "swiftc", {"%f"}, "%f:%l:%c:.+: %m", {"linux"}, true)
-    makeLinter("yaml", "yaml", "yamllint", {"--format", "parsable", "%f"}, "%f:%l:%c:.+ %m")
-    makeLinter("nix-linter", "nix", "nix-linter", {"%f"}, "%m at %f:%l:%c", {"linux"}, true)
+    makeLinter("gcc", "c", "gcc", { "-fsyntax-only", "-Wall", "-Wextra", "%f" }, "%f:%l:%c:.+: %m")
+    makeLinter("g++", "c++", "g++", { "-fsyntax-only", "-Wall", "-Wextra", "%f" }, "%f:%l:%c:.+: %m")
+    makeLinter("dmd", "d", "dmd", { "-color=off", "-o-", "-w", "-wi", "-c", "%f" }, "%f%(%l%):.+: %m")
+    makeLinter("ldc2", "d", "ldc2", { "--o-", "--vcolumns", "-w", "-c", "%f" }, "%f%(%l,%c%):[^:]+: %m")
+    makeLinter("gdc", "d", "gdc", { "-fsyntax-only", "-Wall", "-Wextra", "%f" }, "%f:%l:%c:.+: %m")
+    makeLinter("eslint", "javascript", "eslint", { "-f", "compact", "%f" }, "%f: line %l, col %c, %m")
+    makeLinter("gobuild", "go", "go", { "build", "-o", devnull, "%d" }, "%f:%l:%c:? %m")
+    makeLinter("govet", "go", "go", { "vet" }, "%f:%l:%c: %m")
+    makeLinter("clippy", "rust", "cargo", { "clippy", "--message-format", "short" }, "%f:%l:%c: %m")
+    makeLinter("hlint", "haskell", "hlint", { "%f" }, "%f:%(?%l[,:]%c%)?.-: %m")
+    makeLinter("javac", "java", "javac", { "-d", "%d", "%f" }, "%f:%l: error: %m")
+    makeLinter("jshint", "javascript", "jshint", { "%f" }, "%f: line %l,.+, %m")
+    makeLinter("literate", "literate", "lit", { "-c", "%f" }, "%f:%l:%m", {}, false, true)
+    makeLinter("luacheck", "lua", "luacheck", { "--no-color", "%f" }, "%f:%l:%c: %m")
+    makeLinter("nim", "nim", "nim", { "check", "--listFullPaths", "--stdout", "--hints:off", "%f" }, "%f.%l, %c. %m")
+    makeLinter("clang", "objective-c", "xcrun", { "clang", "-fsyntax-only", "-Wall", "-Wextra", "%f" }, "%f:%l:%c:.+: %m")
+    makeLinter("pyflakes", "python", "pyflakes", { "%f" }, "%f:%l:.-:? %m")
+    makeLinter("mypy", "python", "mypy", { "%f" }, "%f:%l: %m")
+    makeLinter("pylint", "python", "pylint", { "--output-format=parseable", "--reports=no", "%f" }, "%f:%l: %m")
+    makeLinter("ruff", "python", "ruff", { "check", "--output-format=concise", "%f" }, "%f:%l:%c: %m")
+    makeLinter("flake8", "python", "flake8", { "%f" }, "%f:%l:%c: %m")
+    makeLinter("shfmt", "shell", "shfmt", { "%f" }, "%f:%l:%c: %m")
+    makeLinter("shellcheck", "shell", "shellcheck", { "-f", "gcc", "%f" }, "%f:%l:%c:.+: %m")
+    makeLinter("swiftc", "swift", "xcrun", { "swiftc", "%f" }, "%f:%l:%c:.+: %m", { "darwin" }, true)
+    makeLinter("swiftc-linux", "swift", "swiftc", { "%f" }, "%f:%l:%c:.+: %m", { "linux" }, true)
+    makeLinter("yaml", "yaml", "yamllint", { "--format", "parsable", "%f" }, "%f:%l:%c:.+ %m")
+    makeLinter("nix-linter", "nix", "nix-linter", { "%f" }, "%m at %f:%l:%c", { "linux" }, true)
 
     config.MakeCommand("lint", function(bp, args)
         bp:Save()
@@ -168,35 +168,69 @@ function lint(buf, linter, cmd, args, errorformat, loff, coff, callback)
             return
         end
     end
-
-    shell.JobSpawn(cmd, args, nil, nil, onExit, buf, linter, errorformat, loff, coff)
+    shell.JobSpawn(cmd, args, nil, nil, function(output)
+        onExit(output, buf, linter, errorformat, loff, coff)
+    end)
 end
 
-function onExit(output, args)
-    local buf, linter, errorformat, loff, coff = args[1], args[2], args[3], args[4], args[5]
+local messageTypes = {
+    error = buffer.MTError,
+    warning = buffer.MTWarning,
+    info = buffer.MTInfo,
+}
+
+function onExit(output, buf, linter, errorformat, loff, coff)
+    local severities = {
+        error = buffer.MTError,
+        warning = buffer.MTWarning,
+        info = buffer.MTInfo,
+    }
+    if type(errorformat) == "table" then
+        for k, v in pairs(errorformat.severity or {}) do
+            if messageTypes[v] == nil then
+                severities[k] = messageTypes[v]
+            end
+        end
+        errorformat = errorformat.errorformat or "%f"
+    end
     local lines = split(output, "\n")
 
-    local regex = errorformat:gsub("%%f", "(..-)"):gsub("%%l", "(%d+)"):gsub("%%c", "(%d+)"):gsub("%%m", "(.+)")
-    for _,line in ipairs(lines) do
+    -- Token order in the errorformat determines capture-group order, since
+    -- %t (severity) is optional and can appear anywhere relative to %c/%m.
+    local tokens = {}
+    for token in errorformat:gmatch("%%(%a)") do
+        table.insert(tokens, token)
+    end
+
+    local regex = errorformat
+        :gsub("%%f", "(..-)")
+        :gsub("%%l", "(%d+)")
+        :gsub("%%c", "(%d+)")
+        :gsub("%%t", "(%a+)")
+        :gsub("%%m", "(.+)")
+    for _, line in ipairs(lines) do
         -- Trim whitespace
         line = line:match("^%s*(.+)%s*$")
         if string.find(line, regex) then
-            local file, line, col, msg = string.match(line, regex)
-            local hascol = true
-            if not string.find(errorformat, "%%c") then
-                hascol = false
-                msg = col
-            elseif col == nil then
-                hascol = false
+            local captures = { string.match(line, regex) }
+            local fields = {}
+            for i, token in ipairs(tokens) do
+                fields[token] = captures[i]
             end
-            if basename(buf.Path) == basename(file) then
+
+            local file, lineNo, col, sev, msg = fields.f, fields.l, fields.c, fields.t, fields.m
+            local hascol = col ~= nil
+
+            local kind = severities[sev] or buffer.MTError
+
+            if filepath.Base(buf.Path) == filepath.Base(file) then
                 local bmsg = nil
                 if hascol then
-                    local mstart = buffer.Loc(tonumber(col-1+coff), tonumber(line-1+loff))
-                    local mend = buffer.Loc(tonumber(col+coff), tonumber(line-1+loff))
-                    bmsg = buffer.NewMessage(linter, msg, mstart, mend, buffer.MTError)
+                    local mstart = buffer.Loc(tonumber(col - 1 + coff), tonumber(lineNo - 1 + loff))
+                    local mend = buffer.Loc(tonumber(col + coff), tonumber(lineNo - 1 + loff))
+                    bmsg = buffer.NewMessage(linter, msg, mstart, mend, kind)
                 else
-                    bmsg = buffer.NewMessageAtLine(linter, msg, tonumber(line+loff), buffer.MTError)
+                    bmsg = buffer.NewMessageAtLine(linter, msg, tonumber(lineNo + loff), kind)
                 end
                 buf:AddMessage(bmsg)
             end
